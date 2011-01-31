@@ -11,5 +11,5 @@ notes.pdf: notes.tex introduction.tex $(OBJECTS)
 	pdflatex -file-line-error notes
 
 clean:
-	rm -f fig/*.pdf fig/*.pdf_tex notes.{aux,bbl,blg,lof,log,lot,out,toc}
+	rm -f fig/*.pdf fig/*.pdf_tex notes.aux notes.bbl notes.blg notes.lof notes.log notes.lot notes.out notes.toc notes.pdf
 
