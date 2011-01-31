@@ -1,3 +1,125 @@
 \section{Introduction}
 
+A Lie group is a group + a manifold (or a variety)
+\begin{itemize}
+  \item $e \in G$ identity element
+  \item product and $x \mapsto x^{-1}$ are continuous operations
+  \item $T_e(G)$, the tangent space at $e$, has a certain bilinear operation which is not associative.
+\end{itemize}
 
+\subsection{Algebras}
+
+Let $k$ be a field (e.g. $k=\mathbb{C}$, or $k=\bar{\mathbb{F}_p}$).
+
+\begin{definition}
+  A vector space $A$ over $k$ is a \emph{$k$-algebra} if $A$ carries a binary operation $A \times A \to A$ which is $k$-bilinear:
+  \begin{align*}
+    (\lambda_1 x_1 + \lambda_2 x_2) \cdot y &= \lambda_1 x_1 \cdot y + \lambda_2 x_2 \cdot y\\
+    x \cdot (\lambda_1 y_1 + \lambda_2 y_2) &= \lambda_1 x \cdot y_1 + \lambda_2 x \cdot  y_2
+  \end{align*}
+  $\forall x_i, y_i, x, y \in A, \forall \lambda_i \in k$.
+\end{definition}
+
+\begin{example}
+  If $V$ is a vector space over $k$ then we give $V$ an algebra structure by:
+  \[
+    v \cdot w = 0 \qquad \forall v,w \in V.
+  \]
+  Then $V$ becomes an algebra with zero multiplication.
+\end{example}
+
+\begin{example}
+  $A=M_n(k)$ is a $k$-algebra with respect to the matrix product. Bilinearity of the matrix product is proved in linear algebra.
+\end{example}
+
+\begin{remark}
+  Let $A$ be a $k$-vector space with basis $\{v_1, \dots, v_n\}$ (so $\text{dim} A = n$). To each pair $(v_i,v_j)$ we assign a vector $w_{ij} \in A$. Then we define a binary operation on $A$ by the following rule:
+  \[
+    \left( \sum_{i=1}^n \lambda_i v_i \right) \cdot \left( \sum_{j=1}^n \mu_i v_j \right) := \sum_{i=1}^n \sum_{j=1}^n \lambda_i \mu_j w_{ij}.
+  \]
+  It is straight forward to check that this product is bilinear.
+\end{remark}
+
+\begin{definition}
+  An algebra $A$ is called \emph{alternative} if
+  \begin{align*}
+    (x \cdot x) \cdot y &= x \cdot (x \cdot y)\\
+    y \cdot (x \cdot x) &= (y \cdot x) \cdot x \qquad \forall x,y \in A.
+  \end{align*}
+\end{definition}
+Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \mathbb{O} = 8$.
+
+\begin{definition}
+  An algebra $A$ is called \emph{anticommutative} if
+  \begin{equation}\label{eqn:anticommutative}
+    x \cdot x = 0 \quad \forall x \in A.
+  \end{equation}
+  Setting $x+y$ for $x$ gives
+  \[
+    0 = (x+y) \cdot (x+y) = x \cdot x + x \cdot y + y \cdot x + y \cdot y
+  \]
+  by linearity, where $x \cdot x = 0$ and $y \cdot y = 0$. Hence
+  \begin{equation}\label{eqn:anticommutative2}
+    x \cdot y = -y \cdot x
+  \end{equation}
+  in any anticommutative algebra. Put $y=x$, then we get $x \cdot x = -x \cdot x$ or $2 x \cdot x = 0$. So if $\text{char}(k) \not= 2$ (i.e. $2 \not= 0$ in $k$) then \ref{eqn:anticommutative2} implies \ref{eqn:anticommutative}.
+\end{definition}
+
+\begin{definition}
+  We say that $A$ satisfies the Jacobi identity if
+  \[
+    x \cdot (y \cdot z) + y \cdot (z \cdot x) + z \cdot (x \cdot y) = 0
+  \]
+  $\forall x,y,z \in A$. We say that $A$ is a \emph{Lie algebra} if it is anticommutative and satisfies the Jacobi identity.
+\end{definition}
+
+\begin{remark}
+  Lie algebras are often denoted by lower case gothic characters. The product in a Lie algebra is denoted $[x,y]$ rather than $x \cdot y$.
+
+  $L$ is a Lie algebra if
+  \begin{itemize}
+    \item $[x,x] = 0$ and
+    \item $[x,[y,z]] + [y,[z,x]] + [z,[x,y]] = 0 \quad \forall x,y,z \in L$.
+  \end{itemize}
+\end{remark}
+
+\subsection{How to obtain Lie algebras from associative algebras}
+
+Let $A$ be an associative algebra over $k$. We give $A'$ a new product denoted by $[\cdot,\cdot]$ by,
+\[
+  [x,y] = x \cdot y - y \cdot x \quad \text{(the commutator product)}.
+\]
+The algebra obtained is denoted $A^{(-)}$.
+
+\begin{remark}
+  If $A$ is commutative then $A^{(-)}$ has zero multiplication.
+\end{remark}
+
+\begin{proposition}
+  $A^{(-)}$ is a Lie algebra.
+\end{proposition}
+
+\begin{proof}
+  We have $[x,x] \overset{def}{=} x \cdot x - x \cdot x = 0$ $\forall x \in A^{(-)}$, hence $A^{(-)}$ is anticommutative.
+
+  Now let $x,y,z \in A$.
+  \begin{align*}
+    [x,[y,z]] + [y,[z,x]] + [z,[x,y]] &\overset{def}{=} x \cdot [y,z] - [y,z] \cdot x\\
+    &+ y \cdot [z,x] - [z,x] \cdot y\\
+    &+ z \cdot [x,y] - [x,y] \cdot z\\
+    &= x \cdot (y \cdot z - z \cdot y) - (y \cdot z - z \cdot y) \cdot x\\
+    &+ y \cdot (z \cdot x - x \cdot z) - (z \cdot x - x \cdot z) \cdot y\\
+    &+ z \cdot (x \cdot y - y \cdot x) - (x \cdot y - y \cdot x) \cdot z\\
+    &= xyz - xzy - yzx + zyx\\
+    &+ yzx - yxz - zxy + xzy\\
+    &+ zxy - zyx - xyz + yxz\\
+    &= 0.
+  \end{align*}
+  Hence $A^{(-)}$ satisfies the Jacobi identity and thus is a Lie algebra.
+\end{proof}
+
+If $A = M_n(k)$ then $A^{(-)}$ has a special name $g\ell_n(k)$ the general linear Lie algebra of order $n$ over $k$.
+
+\begin{remark}
+  If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = g\ell_n(\R)$.
+\end{remark}
