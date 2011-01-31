@@ -9,7 +9,7 @@ A Lie group is a group + a manifold (or a variety)
 
 \subsection{Algebras}
 
-Let $k$ be a field (e.g. $k=\mathbb{C}$, or $k=\bar{\mathbb{F}_p}$).
+Let $k$ be a field (e.g. $k=\mathbb{C}$, or $k=\overline{\mathbb{F}_p}$).
 
 \begin{definition}
   A vector space $A$ over $k$ is a \emph{$k$-algebra} if $A$ carries a binary operation $A \times A \to A$ which is $k$-bilinear:
@@ -33,9 +33,9 @@ Let $k$ be a field (e.g. $k=\mathbb{C}$, or $k=\bar{\mathbb{F}_p}$).
 \end{example}
 
 \begin{remark}
-  Let $A$ be a $k$-vector space with basis $\{v_1, \dots, v_n\}$ (so $\text{dim} A = n$). To each pair $(v_i,v_j)$ we assign a vector $w_{ij} \in A$. Then we define a binary operation on $A$ by the following rule:
+  Let $A$ be a $k$-vector space with basis $\{v_1, \dots, v_n\}$ (so $\text{dim } A = n$). To each pair $(v_i,v_j)$ we assign a vector $w_{ij} \in A$. Then we define a binary operation on $A$ by the following rule:
   \[
-    \left( \sum_{i=1}^n \lambda_i v_i \right) \cdot \left( \sum_{j=1}^n \mu_i v_j \right) := \sum_{i=1}^n \sum_{j=1}^n \lambda_i \mu_j w_{ij}.
+    \left( \sum_{i=1}^n \lambda_i v_i \right) \cdot \left( \sum_{j=1}^n \mu_j v_j \right) := \sum_{i=1}^n \sum_{j=1}^n \lambda_i \mu_j w_{ij}.
   \]
   It is straight forward to check that this product is bilinear.
 \end{remark}
@@ -47,7 +47,7 @@ Let $k$ be a field (e.g. $k=\mathbb{C}$, or $k=\bar{\mathbb{F}_p}$).
     y \cdot (x \cdot x) &= (y \cdot x) \cdot x \qquad \forall x,y \in A.
   \end{align*}
 \end{definition}
-Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \mathbb{O} = 8$.
+Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \mathbb{O} = 8$).
 
 \begin{definition}
   An algebra $A$ is called \emph{anticommutative} if
@@ -58,11 +58,11 @@ Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \ma
   \[
     0 = (x+y) \cdot (x+y) = x \cdot x + x \cdot y + y \cdot x + y \cdot y
   \]
-  by linearity, where $x \cdot x = 0$ and $y \cdot y = 0$. Hence
+  by bilinearity, where $x \cdot x = 0$ and $y \cdot y = 0$. Hence
   \begin{equation}\label{eqn:anticommutative2}
     x \cdot y = -y \cdot x
   \end{equation}
-  in any anticommutative algebra. Put $y=x$, then we get $x \cdot x = -x \cdot x$ or $2 x \cdot x = 0$. So if $\text{char}(k) \not= 2$ (i.e. $2 \not= 0$ in $k$) then \ref{eqn:anticommutative2} implies \ref{eqn:anticommutative}.
+  in any anticommutative algebra. Put $y=x$, then we get $x \cdot x = -x \cdot x$ or $2 x \cdot x = 0$. So if $\text{char}(k) \not= 2$ (i.e. $2 \not= 0$ in $k$) then Equation (\ref{eqn:anticommutative2}) implies Equation (\ref{eqn:anticommutative}).
 \end{definition}
 
 \begin{definition}
@@ -74,7 +74,7 @@ Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \ma
 \end{definition}
 
 \begin{remark}
-  Lie algebras are often denoted by lower case gothic characters. The product in a Lie algebra is denoted $[x,y]$ rather than $x \cdot y$.
+  Lie algebras are often denoted by lower case gothic characters. The product in a Lie algebra is denoted $[x,y]$ rather than $x \cdot y$. This notation is called the \emph{Lie product} or \emph{Lie bracket}.
 
   $L$ is a Lie algebra if
   \begin{itemize}
@@ -85,7 +85,7 @@ Examples include $\mathbb{O}$, the algebra of Cayley octonions ($\text{dim } \ma
 
 \subsection{How to obtain Lie algebras from associative algebras}
 
-Let $A$ be an associative algebra over $k$. We give $A'$ a new product denoted by $[\cdot,\cdot]$ by,
+Let $A$ be an associative algebra over $k$. We give $A$ a new product denoted by $[\cdot,\cdot]$ by,
 \[
   [x,y] = x \cdot y - y \cdot x \quad \text{(the commutator product)}.
 \]
@@ -118,8 +118,8 @@ The algebra obtained is denoted $A^{(-)}$.
   Hence $A^{(-)}$ satisfies the Jacobi identity and thus is a Lie algebra.
 \end{proof}
 
-If $A = M_n(k)$ then $A^{(-)}$ has a special name $g\ell_n(k)$ the general linear Lie algebra of order $n$ over $k$.
+If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the general linear Lie algebra of order $n$ over $k$.
 
 \begin{remark}
-  If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = g\ell_n(\R)$.
+  If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = \textgoth{gl}(n, \R)$.
 \end{remark}
