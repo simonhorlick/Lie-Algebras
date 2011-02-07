@@ -143,7 +143,7 @@ If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the gene
 	Let $A$ be an algebra over $k$. A subspace $B$ of $A$ is a \emph{subalgebra} if $x \cdot y \in B$ for all $x, y \in B$.
 \end{definition}
 
-\begin{example}
+\begin{example}\hfill
 	\begin{itemize}
 		\item (Lazy example) If $A$ has zero multiplication, then any subspace $V$ of $A$ is a subalgebra. Indeed, if $x, y \in V$, then $x \cdot y = 0 \in V$ (since $V$ is a subspace).
 		\item If $A$ is anticommutative, then for all $x \in A$ the $k$-span $kx$ is a subalgebra of $A$:
@@ -167,7 +167,179 @@ If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the gene
 			\vdots	 & \vdots & \ddots & \vdots \\
 			\alpha_n & 0 & \ldots & 0
 		\end{pmatrix}
-		\ |\ \alpha_i \in k, i \in \{1, \ldots n\}\right\}
+		\ |\ \alpha_i \in k, i \in \{1, \ldots n\}
+		\right\}
 	\]
-	is a left ideal of $A$.
+	is a left ideal of $A$. Also,
+	\[
+		I^T = \left\{
+		\begin{pmatrix}
+			\alpha_1 & \alpha_2 & \ldots & \alpha_n \\
+			0 & 0 & \ldots & 0 \\
+			\vdots	 & \vdots & \ddots & \vdots \\
+			0 & 0 & \ldots & 0
+		\end{pmatrix}
+		\ |\ \alpha_i \in k, i \in \{1, \ldots n\}
+		\right\}
+	\]
+	is a right ideal of $A$.
 \end{example}
+
+\begin{remark}
+	Suppose $A$ is anticommutative and $I$ is a left ideal. Then for any $a \in A$ and $x \in I$ we have $x \cdot a = - a \cdot x \in I$. Hence $I$ is a also a right ideal.
+	
+	i.e. If $A$ is anticommutative, there is no need to distinguish between left and right ideals. So for Lie algebras, we only say ``ideals''.
+	
+	Any Lie algebra $L$ has two obvious ideals: $\{0\}$ and $L$.
+\end{remark}
+
+\begin{definition}
+	Let $L$ be a Lie algebra. We say:
+	\begin{itemize}
+		\item $x, y \in L$ \emph{commute} if $[x, y] = 0$;
+		\item $L$ is \emph{abelian} if $[x, y] = 0$;
+		\item $L$ is \emph{simple} if $L$ is not abelian and $\{0\}$ and $L$ are the only ideals of $L$.
+	\end{itemize}
+\end{definition}
+
+One of the main problems of Lie Theory is to classify \emph{all} finite dimensional simple Lie algebras. The following table lists the mathematicians who first classified Lie algebras where $k$ has some given characteristic (below, $p$ is a prime).
+
+\begin{center}
+	\begin{tabular}{c|l}
+		$\text{char}(k)$ & Classifier(s) \\
+		\hline
+		$0$ ($k$ is algebraically closed) & W. Killing and E. Cartan \\
+		$p > 7$ & R. E. Black, R. L. Wilson and H. Strade (c. 1988) \\
+		$p > 3$ & H. Strade \\
+		$p = 2, 3$ & This is still an open problem.
+	\end{tabular}
+\end{center}
+
+Moving on\ldots
+
+\begin{definition}
+	If $M, N$ are two subspaces of a Lie algebra $L$ then define
+	\[
+		[M, N] := \text{span}\{[x, y]\ |\ x \in M, y \in N\}.
+	\]
+\end{definition}
+
+\begin{example}
+	$[0, N] = \{0\}$.
+\end{example}
+
+In this new notation, $M$ is a subalgebra of $L$ if $[M, M] \subseteq M$.
+
+\begin{lemma}[Lemma on two ideals]
+	Let $I, J$ be two ideals of $L$. Then $I + J$ and $[I, J]$ are ideals of $L$.
+	\begin{proof}
+		Let $x \in I$, $y \in J$ and $a \in A$. Then
+		\[
+			[a, x + y] = \underbrace{[a, x]}_{\in I} + \underbrace{[a, y]}_{\in J}.
+		\]
+		So $[a, x + y] \in I + J$ and thus $I + J$ is an ideal.
+		
+		Now consider $[I, J]$. We have
+		\begin{align*}
+			0 &= [a, [x, y]] + [x, [y, a]] + [y, [a, x]] \quad \text{(Jacobi identity)} \\
+			  &= [a, [x, y]] - [x, [a, y]] - [[a, x], y] \quad \text{(anticommutivity)} \\
+		\end{align*}
+		Rearranging, we have $[a, [x, y]] = [\underbrace{x}_{\in I}, \underbrace{[a, y]}_{\in J}] + [\underbrace{[a, x]}_{\in I}, \underbrace{y}_{\in J}]$.
+		So $a, [x, y]] \in [I, J] + [I, J] = [I, J]$. Hence $[L, [I, J]] \subseteq [I, J]$, i.e. $[I, J]$ is an ideal.
+	\end{proof}
+\end{lemma}
+
+\begin{definition}
+	We say $L$ is \emph{perfect} if $L = [L, L]$. In particular, any simple Lie algebra is perfect.
+\end{definition}
+
+\begin{definition}
+	The \emph{centre} of $L$, denoted $Z(L)$, is given by
+	\begin{align*}
+		Z(L) &= \{z \in L\ |\ [z, L] = 0\} \\
+			 &= \{z \in L\ |\ [z, x] = 0 \text{ for all } x \in L\}.
+	\end{align*}
+	It is easy to see that $Z(L)$ is an ideal of $L$ (since $0 \in Z(L)$).
+\end{definition}
+
+\begin{example}
+	We have
+	\begin{align*}
+		Z(\textgoth{gl}(n, k)) &= \{A \in M_n(k)\ |\ AX = XA \text{ for all } x \in M_n(k)\} \quad \text{(by definition)} \\
+			&= \{\lambda I_n\ |\ \lambda \in k\} \quad \text{(from linear algebra)}.
+	\end{align*}
+	So $Z(\textgoth{gl}(n, k))$ has dimension $1$.
+	
+	Similarly,
+	\begin{align*}
+		Z(\textgoth{gl}(V)) &= \{A \in A(V)\ |\ A \circ X = X \circ A \text{ for all } X \in A(V)\} \\
+			&= \{\lambda Id_V\ |\ \lambda \in k\}
+	\end{align*}
+	is 1-dimensional (it is spanned by the identity operator).
+\end{example}
+
+\begin{definition}
+	For $a \in L$, the \emph{centraliser} of $a \in L$ is defined
+	\[
+		C_L(a) := \{x \in L\ |\ [a, x] = 0\}.
+	\]
+\end{definition}
+
+\begin{remark}
+	If $a = 0$ then $C_L(a) = L$. More generally, $C_L(a) = L$ if and only if $a \in Z(L)$.
+\end{remark}
+
+\begin{lemma}
+	For any $a \in L$, the centraliser $C_L(a)$ is a subalgebra.
+	\begin{proof}
+		Suppose $x, y \in C_L(a)$. Then
+		\begin{align*}
+			[a, \lambda x + \mu y] &= \lambda[a, x] + \mu[a, y] \quad \text{(bilinearity)} \\
+				&= \lambda \cdot 0 + \mu \cdot 0 \\
+				&= 0.
+		\end{align*}
+		So $C_L(a)$ is a subspace.
+		
+		Now the Jacobi identity gives:
+		\begin{align*}
+			[a, [x, y]] &= -[x, [y, a]] - [y, [a, x]] \\
+					   &= [x, \underbrace{[a, y]}_{= 0} - [y, \underbrace{[a, x]}_{= 0}] \quad \text{(anticommutivity)} \\
+					   &= [x, 0] - [y, 0] \\
+					   &= 0 \quad \text{(bilinearity)}.
+		\end{align*}
+		Hence $C_L(a)$ is a subalgebra.
+	\end{proof}
+\end{lemma}
+
+\begin{definition}
+	If $A \in \textgoth{gl}(n, k)$, where
+	\[
+		A =
+		\begin{pmatrix}
+			\alpha_{11} & \alpha_{12} & \ldots & \alpha_{1n} \\
+			\alpha_{21} & \alpha_{22} & \ldots & \alpha_{2n} \\
+			\vdots		& \vdots	  & \ddots & \vdots \\
+			\alpha_{n1} & \alpha_{n2} & \ldots & \alpha_{nn}
+		\end{pmatrix},
+	\]
+	then the \emph{trace} of $A$, denoted $\text{tr}(A)$, is given by
+	\[
+		\text{tr}(A) := \sum_{i = 1}^n{\alpha_{ii}}.
+	\]
+	
+	From linear algebra we have $tr(A \cdot B) = tr(B \cdot A)$ for all $A, B \in \textgoth{gl}(n, k)$. Hence
+	\begin{align*}
+		\text{tr}([A, B]) &= \text{tr}(AB - BA) \\
+				   &= \text{tr}(AB) - \text{tr}(BA) \\
+				   &= 0.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	Define $\textgoth{sl}(n, k) := \{A \in \textgoth{gl}(n, k)\ |\ \text{tr}(A) = 0\}$, the \emph{special linear Lie algebra} of order $n$ over $k$.
+\end{definition}
+
+Note that $\text{tr} : \textgoth{gl}(n, k) \twoheadrightarrow k$ is a surjective linear map and $\textgoth{sl}(n, k) = \ker(\text{tr})$. By the Kernel-Image Theorem,
+\[
+	\dim(\textgoth{sl}(n, k)) &= \underbrace{\dim(\textgoth{gl}(n, k))}_{= n^2} - \underbrace{\dim(k)}_{= 1} = n^2 - 1.
+\]
