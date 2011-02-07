@@ -56,3 +56,32 @@ Recall $j(x, y, z)$ then
 \]
 We conclude that ($L/I, [-,-]$) is a lie algebra. Call it the \emph{factor algebra} of $L$ by $I$.
 
+\begin{definition}
+  Let $L$ and $M$ be two lie algebras over $k$. A linear map $\phi : L \to M$ is called a (lie algebra) \emph{homomorphism} if
+  \[
+    \phi([x, y]) = [\phi(x), \phi(y)]
+  \]
+  for all $x, y \in L$.
+\end{definition}
+
+\begin{example}
+  The zero map $x \mapsto 0$ is a lie algebra homomorphism. Since $\phi$ is a linear map, $\text{ker } \phi := \{ x \in L | \phi(x) = 0 \}$ is a subspace of $L$ and $\text{Im } \phi := \{ y \in M | y = \phi(x) for x \in L \}$.
+\end{example}
+
+If $\phi$ is bijective then we say that $\phi$ is an \emph{isomorphism} (of lie algebras) and $\phi$ exists, we write $L \cong M$. One studies lie algebras up to isomorphism.
+
+\begin{theorem}[On isomorphisms]
+  Let $\phi : L \to M$ be a homomorphism of lie algebras. Then
+  \begin{enumerate}
+    \item $\text{ker }\phi$ is an ideal of $L$;
+    \item $\text{Im }\phi$ is a subalgebra of $M$;
+    \item $L/\text{ker }\phi \cong \text{Im }\phi$ as lie algebras.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+If $V$ is a vector space and $L$ is a lie algebra, both over $k$. Then a lie algebra homomorphism $\rho : L \to \mathfrak{gl}(V)$ is called a \emph{representation} of $L$ (in $\mathfrak{gl}(V)$). If $\text{dim } V$ is finite then $\rho$ is called \emph{finite dimensional}. Then $\text{dim } V$ is called the \emph{degree} of $\rho$, denoted $\text{deg }\rho$. We say that $\rho : L \to \mathfrak{gl}(V)$ is \emph{faithful} if $\text{ker }_\rho = \{ 0 \}$. Then $\rho(L) \cong L/\text{ker }\rho \cong L$. So $L$ identifies with a subalgebra of $\mathfrak{gl}(V)$.
+
