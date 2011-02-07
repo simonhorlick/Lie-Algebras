@@ -123,3 +123,51 @@ If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the gene
 \begin{remark}
   If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = \textgoth{gl}(n, \R)$.
 \end{remark}
+
+\begin{definition}
+	Let $V$ be an $n$ dimension vector space over $k$. We define $A(V)$ to be the space of all linear operators $A : V \to V$ on $V$. This is an associative algebra with respect to composition:
+	\[
+		A \circ B(v) = A(B(v)) \quad \text{for all } v \in V, \text{ for all } A, B \in A(V).
+	\]
+\end{definition}
+
+\begin{definition}
+	The Lie algebra $A(V)^{(-)}$ is denoted $\textgoth{gl}(V)$, the \emph{general linear Lie algebra of $V$}. We have
+	\[
+		[A, B] = A \circ B - B \circ A \quad \text{for all } A, B \in \textgoth{gl}(V).
+	\]
+\end{definition}
+
+\subsection{Subalgebras and Ideals}
+\begin{definition}
+	Let $A$ be an algebra over $k$. A subspace $B$ of $A$ is a \emph{subalgebra} if $x \cdot y \in B$ for all $x, y \in B$.
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item (Lazy example) If $A$ has zero multiplication, then any subspace $V$ of $A$ is a subalgebra. Indeed, if $x, y \in V$, then $x \cdot y = 0 \in V$ (since $V$ is a subspace).
+		\item If $A$ is anticommutative, then for all $x \in A$ the $k$-span $kx$ is a subalgebra of $A$:
+		\[
+			\lambda x \circ \mu x = \lambda\mu(\underbrace{x \circ x}_{= 0}) = 0 \in kx.
+		\]
+	\end{itemize}
+\end{example}
+
+\begin{definition}
+	A subspace $I$ of an algebra $A$ is a \emph{left ideal} if $a \cdot x \in I$ for all $a \in A$ and for all $x \in I$. \emph{Right ideals} are defined similarly.
+\end{definition}
+
+\begin{example}
+	If $A = M_n(k)$ then
+	\[
+		I := \left\{
+		\begin{pmatrix}
+			\alpha_1 & 0 & \ldots & 0 \\
+			\alpha_2 & 0 & \ldots & 0 \\
+			\vdots	 & \vdots & \ddots & \vdots \\
+			\alpha_n & 0 & \ldots & 0
+		\end{pmatrix}
+		\ |\ \alpha_i \in k, i \in \{1, \ldots n\}\right\}
+	\]
+	is a left ideal of $A$.
+\end{example}
