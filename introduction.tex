@@ -118,10 +118,10 @@ The algebra obtained is denoted $A^{(-)}$.
   Hence $A^{(-)}$ satisfies the Jacobi identity and thus is a Lie algebra.
 \end{proof}
 
-If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the general linear Lie algebra of order $n$ over $k$.
+If $A = M_n(k)$ then $A^{(-)}$ has a special name $\mathfrak{gl}(n, k)$ the general linear Lie algebra of order $n$ over $k$.
 
 \begin{remark}
-  If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = \textgoth{gl}(n, \R)$.
+  If $G=GL_n(\R)$, a very important Lie group, then $T_e(G) = \mathfrak{gl}(n, \R)$.
 \end{remark}
 
 \begin{definition}
@@ -132,9 +132,9 @@ If $A = M_n(k)$ then $A^{(-)}$ has a special name $\textgoth{gl}(n, k)$ the gene
 \end{definition}
 
 \begin{definition}
-	The Lie algebra $A(V)^{(-)}$ is denoted $\textgoth{gl}(V)$, the \emph{general linear Lie algebra of $V$}. We have
+	The Lie algebra $A(V)^{(-)}$ is denoted $\mathfrak{gl}(V)$, the \emph{general linear Lie algebra of $V$}. We have
 	\[
-		[A, B] = A \circ B - B \circ A \quad \text{for all } A, B \in \textgoth{gl}(V).
+		[A, B] = A \circ B - B \circ A \quad \text{for all } A, B \in \mathfrak{gl}(V).
 	\]
 \end{definition}
 
@@ -265,14 +265,14 @@ In this new notation, $M$ is a subalgebra of $L$ if $[M, M] \subseteq M$.
 \begin{example}
 	We have
 	\begin{align*}
-		Z(\textgoth{gl}(n, k)) &= \{A \in M_n(k)\ |\ AX = XA \text{ for all } x \in M_n(k)\} \quad \text{(by definition)} \\
+		Z(\mathfrak{gl}(n, k)) &= \{A \in M_n(k)\ |\ AX = XA \text{ for all } x \in M_n(k)\} \quad \text{(by definition)} \\
 			&= \{\lambda I_n\ |\ \lambda \in k\} \quad \text{(from linear algebra)}.
 	\end{align*}
-	So $Z(\textgoth{gl}(n, k))$ has dimension $1$.
+	So $Z(\mathfrak{gl}(n, k))$ has dimension $1$.
 	
 	Similarly,
 	\begin{align*}
-		Z(\textgoth{gl}(V)) &= \{A \in A(V)\ |\ A \circ X = X \circ A \text{ for all } X \in A(V)\} \\
+		Z(\mathfrak{gl}(V)) &= \{A \in A(V)\ |\ A \circ X = X \circ A \text{ for all } X \in A(V)\} \\
 			&= \{\lambda Id_V\ |\ \lambda \in k\}
 	\end{align*}
 	is 1-dimensional (it is spanned by the identity operator).
@@ -312,7 +312,7 @@ In this new notation, $M$ is a subalgebra of $L$ if $[M, M] \subseteq M$.
 \end{lemma}
 
 \begin{definition}
-	If $A \in \textgoth{gl}(n, k)$, where
+	If $A \in \mathfrak{gl}(n, k)$, where
 	\[
 		A =
 		\begin{pmatrix}
@@ -327,7 +327,7 @@ In this new notation, $M$ is a subalgebra of $L$ if $[M, M] \subseteq M$.
 		\text{tr}(A) := \sum_{i = 1}^n{\alpha_{ii}}.
 	\]
 	
-	From linear algebra we have $tr(A \cdot B) = tr(B \cdot A)$ for all $A, B \in \textgoth{gl}(n, k)$. Hence
+	From linear algebra we have $tr(A \cdot B) = tr(B \cdot A)$ for all $A, B \in \mathfrak{gl}(n, k)$. Hence
 	\begin{align*}
 		\text{tr}([A, B]) &= \text{tr}(AB - BA) \\
 				   &= \text{tr}(AB) - \text{tr}(BA) \\
@@ -336,10 +336,120 @@ In this new notation, $M$ is a subalgebra of $L$ if $[M, M] \subseteq M$.
 \end{definition}
 
 \begin{definition}
-	Define $\textgoth{sl}(n, k) := \{A \in \textgoth{gl}(n, k)\ |\ \text{tr}(A) = 0\}$, the \emph{special linear Lie algebra} of order $n$ over $k$.
+	Define $\mathfrak{sl}(n, k) := \{A \in \mathfrak{gl}(n, k)\ |\ \text{tr}(A) = 0\}$, the \emph{special linear Lie algebra} of order $n$ over $k$.
 \end{definition}
 
-Note that $\text{tr} : \textgoth{gl}(n, k) \twoheadrightarrow k$ is a surjective linear map and $\textgoth{sl}(n, k) = \ker(\text{tr})$. By the Kernel-Image Theorem,
+Note that $\text{tr} : \mathfrak{gl}(n, k) \twoheadrightarrow k$ is a surjective linear map and $\mathfrak{sl}(n, k) = \ker(\text{tr})$. By the Kernel-Image Theorem,
 \[
-	\dim(\textgoth{sl}(n, k)) &= \underbrace{\dim(\textgoth{gl}(n, k))}_{= n^2} - \underbrace{\dim(k)}_{= 1} = n^2 - 1.
+	\dim(\mathfrak{sl}(n, k)) = \underbrace{\dim(\mathfrak{gl}(n, k))}_{= n^2} - \underbrace{\dim(k)}_{= 1} = n^2 - 1.
 \]
+
+Now we know $[\mathfrak{gl}(n, k), \mathfrak{gl}(n, k)] \subseteq \mathfrak{sl}(n, k)$. Also, $\mathfrak{sl}(n, k)$ is an ideal of $\mathfrak{sl}(n, k)$.
+
+The case $n = 2$ is \emph{very} important. Let
+\[
+	L = \mathfrak{sl}(2, k) = \left\{X =
+	\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix}
+	\ |\ \text{tr}(X) = 0,\ a, b, c, d \in k
+	\right\}.
+\]
+As $\text{tr}(X) = a + d = 0$, we have $d = -a$. Thus
+\[
+	\mathfrak{sl}(2, k) = \left\{X =
+	\begin{pmatrix}
+		a & b \\
+		c & -a
+	\end{pmatrix}
+	\ |\ a, b, c \in k
+	\right\}.
+\]
+Now
+\[
+	\begin{pmatrix}
+		a & b \\
+		c & -a
+	\end{pmatrix}
+	=
+	a\begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix}
+	+
+	b\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	+
+	c\begin{pmatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pmatrix}.
+\]
+Define
+\[
+	h :=
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix}, \quad
+	e :=
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}, \quad
+	+
+	f :=
+	\begin{pmatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pmatrix}.
+\]
+The matrices $h, e, f$ span $\mathfrak{sl}(2, k)$ and are linearly independent, and hence form basis of $\mathfrak{sl}(2, k)$, called \emph{standard}.
+
+We compute
+\begin{align*}
+	[h, e] &= \left[
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix},
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	\right] \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix}
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	-
+	\begin{pmatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix} \\
+	&=
+	\begin{pmatrix}
+		0 & 2 \\
+		0 & 0
+	\end{pmatrix} \\ 
+	&= 2e
+\end{align*}
+We can also show $[h, f] = -2f$ and $[e, f] = h$. So we have
+\[
+\fbox{
+	[h, e] = 2e, \quad [e, f] = h, \quad [h, f] = -2f
+}
+\]
+These are known as the \emph{$\mathfrak{sl}_2$ relations}.
