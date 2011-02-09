@@ -3,9 +3,9 @@
 \subsection{Some linear algebra}
 Let $V$ be a vector space over a field $k$ and $W$ a subspace. A \emph{coset} $v + W$ is the subset of $V$ of the form
 \[
-  v + W = \{ v + w | w \in W \}.
+  v + W = \{ v + w\ |\ w \in W \}.
 \]
-One knows that $v + W = v' + W \iff v - v' \in W$. Let $V/W$ be the set of all cosets in $V$. Give $V/W$ two operations (vector addition and scalar multiplication) by
+We know that $v + W = v' + W \iff v - v' \in W$. Let $V/W$ be the set of all cosets in $V$. Give $V/W$ two operations (vector addition and scalar multiplication) by
 \begin{align*}
   (u + W) + (v + W) &:= u + v + W\\
      \lambda(v + W) &:= \lambda v + W
@@ -18,46 +18,46 @@ These two operations are well defined. For example, if $v + W = v' + W$ (so that
                   &= \lambda v - \lambda(v - v') + W\\
                   &= \lambda v + W.
 \end{align*}
-The zero vector of $V/W$ is the zero coset $0 + W = W$. One checks that all axioms of a vector space are satisfied and so $V/W$ is a vector space over $k$.
+The zero vector of $V/W$ is the zero coset $0 + W = W$. We can check that all axioms of a vector space are satisfied and so $V/W$ is a vector space over $k$.
 
-Suppose $\text{dim } V = n$ is finite, then $\text{dim } W = m \leq n$. Let $w_1, \dots, w_m$ be a basis for $W$. By basis extension theorem we can extend this up to a basis of $V$. Let $S = \{ v_1, \dots, v_{n-m}, w_1, \dots, w_m \}$. Any $v \in V$ is a linear combination of vectors in $S$, i.e.
+Suppose $\text{dim } V = n$ is finite, then $\text{dim } W = m \leq n$. Let $w_1, \dots, w_m$ be a basis for $W$. By the Basis Extension Theorem we can extend this up to a basis of $V$. Let $S = \{ v_1, \dots, v_{n-m}, w_1, \dots, w_m \}$. Any $v \in V$ is a linear combination of vectors in $S$, i.e.
 \[
   v = \alpha_1 v_1 + \dots + \alpha_{n-m} v_{n-m} + \beta_1 w_1 + \dots + \beta_m w_m
 \]
-for $\alpha_i, \beta_i \in k$. Then
+for $\alpha_i, \beta_i \in k$. Then we have
 \[
-  v + W = \alpha_1 (v_1 + W) + \dots + \alpha_{n-m} (v_{n-m} + W)
+  v + W = \alpha_1 (v_1 + W) + \dots + \alpha_{n-m} (v_{n-m} + W).
 \]
-hence the vectors $v_1 + W, \dots, v_{n-m} + W \in V/W$ span $V/W$. From the definition one deduces that these cosets are linearly independent in $V/W$. So they form a bayesis of $V/W$ and $\text{dim } V/W = n - m = \text{dim } V - \text{dim } W$. We call $V/W$ the \emph{factor space} of $V$ by $W$.
+Hence the vectors $v_1 + W, \dots, v_{n-m} + W \in V/W$ span $V/W$. From the definition one deduces that these cosets are linearly independent in $V/W$. So they form a bayesis of $V/W$ and $\text{dim } V/W = n - m = \text{dim } V - \text{dim } W$. We call $V/W$ the \emph{factor space} of $V$ by $W$.
 
-\begin{remark}
+\begin{remark}\hfill
   \begin{itemize}
     \item If $W = V$ then $V/W$ is the zero space.
     \item If $W = \{ 0 \}$ then $V/W$ identifies with $V$.
   \end{itemize}
 \end{remark}
 
-Let $L$ be a lie algebra over $k$ and $I$ an ideal of $L$. Then the factor space $L/I$ has a bilinear operation $[-,-]$ induced by the lie bracket on $L$. Namely, for $x,y \in L$ we define
+Let $L$ be a Lie algebra over $k$ and $I$ an ideal of $L$. Then the factor space $L/I$ has a bilinear operation $[-,-]$ induced by the lie bracket on $L$. Namely, for $x,y \in L$ we define
 \[
   [x + I, y + I] := [x, y] + I.
 \]
-This definition is correct, for if $x + I = x' + I$ and $y + I = y' + I$ then $x' - x, y' - y \in I$ and hence
+This definition is correct, for if $x + I = x' + I$ and $y + I = y' + I$ then $x' - x,\, y' - y \in I$ and hence
 \begin{align*}
   [x' + I, y' + I] &= [x', y'] + I\\
-                   &= [x + (x' - x) + I, y + (y' - y) + I\\
+                   &= [x + (x' - x) + I, y + (y' - y) + I] \\
                    &= [x, y] + [x, y' - y] + [x' - x, y] + [x' - x, y' - y] + I\\
                    &= [x, y] + I.
 \end{align*}
 We have $[x + I, x + I] = [x, x] + I = I$ ($ = 0 \text{ in } L/I$) so $L/I$ is anticommutative.
 
-Recall $j(x, y, z)$ then
+Recall $j(x, y, z) := [x, [y, z]] + [y, [z, x]] + [z, [x, y]]$ (as defined in Examples class 1). Then
 \[
   j(x + I, y + I, z + I) = j(x, y, z) + I = I = 0 \text{ in } L/I.
 \]
-We conclude that ($L/I, [-,-]$) is a lie algebra. Call it the \emph{factor algebra} of $L$ by $I$.
+Since the Jacobi identity is satisfied if and only if $j(x, y, z) = 0$, we conclude that ($L/I, [-,-]$) is a Lie algebra. Call it the \emph{factor algebra} of $L$ by $I$.
 
 \begin{definition}
-  Let $L$ and $M$ be two lie algebras over $k$. A linear map $\phi : L \to M$ is called a (lie algebra) \emph{homomorphism} if
+  Let $L$ and $M$ be two Lie algebras over $k$. A linear map $\phi : L \to M$ is called a (Lie algebra) \emph{homomorphism} if
   \[
     \phi([x, y]) = [\phi(x), \phi(y)]
   \]
@@ -65,23 +65,44 @@ We conclude that ($L/I, [-,-]$) is a lie algebra. Call it the \emph{factor algeb
 \end{definition}
 
 \begin{example}
-  The zero map $x \mapsto 0$ is a lie algebra homomorphism. Since $\phi$ is a linear map, $\text{ker } \phi := \{ x \in L | \phi(x) = 0 \}$ is a subspace of $L$ and $\text{Im } \phi := \{ y \in M | y = \phi(x) for x \in L \}$.
+  The zero map $x \mapsto 0$ is a lie algebra homomorphism.
 \end{example}
 
-If $\phi$ is bijective then we say that $\phi$ is an \emph{isomorphism} (of lie algebras) and $\phi$ exists, we write $L \cong M$. One studies lie algebras up to isomorphism.
+Since $\phi$ is a linear map, $\ker\phi := \{ x \in L\ |\ \phi(x) = 0 \}$ is a subspace of $L$ and $\text{Im } \phi := \{ y \in M\ |\ y = \phi(x) \text{ for } x \in L \}$ is a subspace of $M$.
+
+If $\phi$ is bijective then we say that $\phi$ is an \emph{isomorphism} (of Lie algebras) and if $\phi$ exists, we write $L \cong M$. We study Lie algebras up to isomorphism.
 
 \begin{theorem}[On isomorphisms]
-  Let $\phi : L \to M$ be a homomorphism of lie algebras. Then
+  Let $\phi : L \to M$ be a homomorphism of Lie algebras. Then
   \begin{enumerate}
-    \item $\text{ker }\phi$ is an ideal of $L$;
+    \item $\ker\phi$ is an ideal of $L$;
     \item $\text{Im }\phi$ is a subalgebra of $M$;
-    \item $L/\text{ker }\phi \cong \text{Im }\phi$ as lie algebras.
+    \item $L/\ker\phi \cong \text{Im }\phi$ as Lie algebras.
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-
+	Let $I = \ker\phi$.
+	\begin{enumerate}
+		\item Let $a \in I$ and $x \in L$. Then $\phi([x, a]) = [\phi(x), \phi(a)] = [\phi(x), 0] = 0$. So $[x, a] \in I$ and hence $I$ is an ideal.
+		\item Let $u, v \in \text{Im }\phi$. So we have $u = \phi(x)$ and $v = \phi(y)$ for some $x, y \in L$. So $[u, v] = [\phi(x), \phi(y)] = \phi([x, y]) \in \text{Im }\phi$. Hence $\text{Im }\phi$ is a subalgebra of $M$.
+		\item Observe that $\phi$ gives rise to a linear map $\bar{\phi} : L / I \to \text{Im }\phi$ by
+		\[
+			\bar{\phi}(x + I) := \phi(x).
+		\]
+		As $I = \ker\phi$, this map is well-defined (and is linear).
+		
+		Now if $a + I \in \ker(\bar{\phi})$, then $\bar{\phi}(a + I) = 0$ in $M$. But this means $\phi(a) = 0$ in $L$, so $a \in I$ and thus $a + I$ is the zero coset. Thus $\ker\bar{\phi} = \{0\}$ which means that $\bar{\phi}$ is injective.
+		
+		Since $\text{Im }\phi = \text{Im }\bar{\phi}$, we have that $\bar{\phi}$ is surjective and thus is bijective. Finally, we have
+		\begin{align*}
+			\bar{\phi}([x + I, y + I]) &= \phi([x, y]) \\
+									   &= [\phi(x), \phi(y)] \\
+									   &= [\bar{\phi}(x + I), \bar{\phi}(y + I)].
+		\end{align*}
+		So $\bar{\phi}$ is a Lie algebra homomorphism, and hence $L / I \cong \text{Im }\phi$.
+	\end{enumerate}
 \end{proof}
 
-If $V$ is a vector space and $L$ is a lie algebra, both over $k$. Then a lie algebra homomorphism $\rho : L \to \mathfrak{gl}(V)$ is called a \emph{representation} of $L$ (in $\mathfrak{gl}(V)$). If $\text{dim } V$ is finite then $\rho$ is called \emph{finite dimensional}. Then $\text{dim } V$ is called the \emph{degree} of $\rho$, denoted $\text{deg }\rho$. We say that $\rho : L \to \mathfrak{gl}(V)$ is \emph{faithful} if $\text{ker }_\rho = \{ 0 \}$. Then $\rho(L) \cong L/\text{ker }\rho \cong L$. So $L$ identifies with a subalgebra of $\mathfrak{gl}(V)$.
+Suppose $V$ is a vector space and $L$ is a Lie algebra, both over $k$. Then a Lie algebra homomorphism $\rho : L \to \mathfrak{gl}(V)$ is called a \emph{representation} of $L$ (in $\mathfrak{gl}(V)$). If $\dim V$ is finite then $\rho$ is called \emph{finite dimensional}. Then $\dim V$ is called the \emph{degree} of $\rho$, denoted $\deg\rho$. We say that $\rho : L \to \mathfrak{gl}(V)$ is \emph{faithful} if $\ker\rho = \{ 0 \}$. Then $\rho(L) \cong L/\ker\rho \cong L$. So $L$ identifies with a subalgebra of $\mathfrak{gl}(V)$.
 
